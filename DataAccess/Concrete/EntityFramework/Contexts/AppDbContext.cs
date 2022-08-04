@@ -26,6 +26,8 @@ public class AppDbContext:DbContext
     public virtual DbSet<Onloan> Onloans { get; set; }
     public virtual DbSet<Book> Books { get; set; }
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<UserRole> UserRoles { get; set; }
     #endregion
         
         
@@ -40,6 +42,9 @@ public class AppDbContext:DbContext
         new MemberConfiguration().Configure(modelBuilder.Entity<Member>());
         new OnloanConfiguration().Configure(modelBuilder.Entity<Onloan>());
         new BookConfiguration().Configure(modelBuilder.Entity<Book>());
+        new UserConfiguration().Configure(modelBuilder.Entity<User>());
+        new RoleConfiguration().Configure(modelBuilder.Entity<Role>());
+        new UserRoleConfiguration().Configure(modelBuilder.Entity<UserRole>());
         #endregion
 
         #region Seeds

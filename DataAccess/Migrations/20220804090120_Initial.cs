@@ -58,6 +58,19 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    RoleId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.RoleId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Types",
                 columns: table => new
                 {
@@ -74,18 +87,17 @@ namespace DataAccess.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    UserID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SurName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RefreshTokenEndDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    UserName = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.UserID);
                 });
 
             migrationBuilder.CreateTable(
@@ -165,6 +177,32 @@ namespace DataAccess.Migrations
                         principalTable: "Types",
                         principalColumn: "TypeId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserRoles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserID = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRoles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserRoles_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
+                        principalColumn: "RoleId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserRoles_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
+                        principalColumn: "UserID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -276,12 +314,12 @@ namespace DataAccess.Migrations
                 columns: new[] { "OnloanId", "BookId", "DeliveryTime", "LendingDate", "MemberId", "StateEnum" },
                 values: new object[,]
                 {
-                    { 1, 1, 15, new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5002), 1, 0 },
-                    { 2, 2, 15, new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5019), 2, 0 },
-                    { 3, 3, 15, new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5022), 3, 0 },
-                    { 4, 4, 15, new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5024), 4, 0 },
-                    { 5, 5, 15, new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5025), 5, 0 },
-                    { 6, 6, 15, new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5028), 8, 0 }
+                    { 1, 1, 15, new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8012), 1, 0 },
+                    { 2, 2, 15, new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8028), 2, 0 },
+                    { 3, 3, 15, new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8030), 3, 0 },
+                    { 4, 4, 15, new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8031), 4, 0 },
+                    { 5, 5, 15, new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8033), 5, 0 },
+                    { 6, 6, 15, new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8034), 8, 0 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -308,6 +346,16 @@ namespace DataAccess.Migrations
                 name: "IX_Onloans_MemberId",
                 table: "Onloans",
                 column: "MemberId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRoles_RoleId",
+                table: "UserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRoles_UserID",
+                table: "UserRoles",
+                column: "UserID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -322,7 +370,7 @@ namespace DataAccess.Migrations
                 name: "Onloans");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "UserRoles");
 
             migrationBuilder.DropTable(
                 name: "Authors");
@@ -335,6 +383,12 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Members");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

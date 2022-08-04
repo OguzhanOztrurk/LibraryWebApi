@@ -61,10 +61,10 @@ public class TokenHandler:ITokenHandler
     {
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            /*new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim(ClaimTypes.Name, $"{user.Name} {user.SurName}"),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())*/
         };
         return claims;
     }
@@ -72,6 +72,6 @@ public class TokenHandler:ITokenHandler
 
     public void RevokeRefreshToken(User user)
     {
-        user.RefreshToken = null;
+        //user.RefreshToken = null;
     }
 }

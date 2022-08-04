@@ -56,6 +56,9 @@ namespace Business.Extensions
                     .AddTransient<IMemberRepository,MemberRepository>()
                     .AddTransient<IOnloanRepository,OnloanRepository>()
                     .AddTransient<ITypeRepository,TypeRepository>()
+                    .AddTransient<IUserRepository,UserRepository>()
+                    .AddTransient<IRoleRepository,RoleRepository>()
+                    .AddTransient<IUserRoleRepository,UserRoleRepository>()
                 ;
             
             //token değerlerini başka yerde kullanmak için injection ediyoruz

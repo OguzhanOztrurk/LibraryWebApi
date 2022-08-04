@@ -565,7 +565,7 @@ namespace DataAccess.Migrations
                             OnloanId = 1,
                             BookId = 1,
                             DeliveryTime = 15,
-                            LendingDate = new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5002),
+                            LendingDate = new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8012),
                             MemberId = 1,
                             StateEnum = 0
                         },
@@ -574,7 +574,7 @@ namespace DataAccess.Migrations
                             OnloanId = 2,
                             BookId = 2,
                             DeliveryTime = 15,
-                            LendingDate = new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5019),
+                            LendingDate = new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8028),
                             MemberId = 2,
                             StateEnum = 0
                         },
@@ -583,7 +583,7 @@ namespace DataAccess.Migrations
                             OnloanId = 3,
                             BookId = 3,
                             DeliveryTime = 15,
-                            LendingDate = new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5022),
+                            LendingDate = new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8030),
                             MemberId = 3,
                             StateEnum = 0
                         },
@@ -592,7 +592,7 @@ namespace DataAccess.Migrations
                             OnloanId = 4,
                             BookId = 4,
                             DeliveryTime = 15,
-                            LendingDate = new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5024),
+                            LendingDate = new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8031),
                             MemberId = 4,
                             StateEnum = 0
                         },
@@ -601,7 +601,7 @@ namespace DataAccess.Migrations
                             OnloanId = 5,
                             BookId = 5,
                             DeliveryTime = 15,
-                            LendingDate = new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5025),
+                            LendingDate = new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8033),
                             MemberId = 5,
                             StateEnum = 0
                         },
@@ -610,10 +610,28 @@ namespace DataAccess.Migrations
                             OnloanId = 6,
                             BookId = 6,
                             DeliveryTime = 15,
-                            LendingDate = new DateTime(2022, 8, 3, 16, 44, 20, 178, DateTimeKind.Local).AddTicks(5028),
+                            LendingDate = new DateTime(2022, 8, 4, 12, 1, 19, 775, DateTimeKind.Local).AddTicks(8034),
                             MemberId = 8,
                             StateEnum = 0
                         });
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Type", b =>
@@ -688,38 +706,61 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Concrete.User", b =>
                 {
+                    b.Property<int>("UserID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"), 1L, 1);
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.UserRole", b =>
+                {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RefreshToken")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("RefreshTokenEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SurName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("Entities.Concrete.BookAuthor", b =>
@@ -779,6 +820,25 @@ namespace DataAccess.Migrations
                     b.Navigation("Member");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.UserRole", b =>
+                {
+                    b.HasOne("Entities.Concrete.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Author", b =>
                 {
                     b.Navigation("BookAuthors");
@@ -798,9 +858,19 @@ namespace DataAccess.Migrations
                     b.Navigation("Onloans");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Type", b =>
                 {
                     b.Navigation("BookTypes");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.User", b =>
+                {
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
