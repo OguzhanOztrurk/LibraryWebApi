@@ -12,7 +12,7 @@ public class UserRole:IEntity
 
     #region Columns
 
-    public int UserID { get; set; }
+    public Guid UserID { get; set; }
     public int RoleId { get; set; }
 
     #endregion

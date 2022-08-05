@@ -8,7 +8,7 @@ public class User:IEntity
 {
     #region Primary Key
 
-    public int UserID { get; set; }
+    public Guid UserID { get; set; }
 
     #endregion
 

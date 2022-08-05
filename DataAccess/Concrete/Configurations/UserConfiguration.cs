@@ -11,7 +11,7 @@ public class UserConfiguration:IEntityTypeConfiguration<User>
         #region Primary Key
 
         builder.HasKey(x => x.UserID);
-        builder.Property(x => x.UserID).UseIdentityColumn();
+        
 
         #endregion
 

@@ -1,6 +1,7 @@
 using Business.Handlers.Members.Commands;
 using Business.Handlers.Members.Queries;
 using LibraryWebApi.Controllers.BaseController;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryWebApi.Controllers;

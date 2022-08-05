@@ -1,6 +1,7 @@
 using Business.Handlers.Books.Command;
 using Business.Handlers.Books.Queries;
 using LibraryWebApi.Controllers.BaseController;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryWebApi.Controllers;

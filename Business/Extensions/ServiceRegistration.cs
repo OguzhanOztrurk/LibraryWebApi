@@ -16,9 +16,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Business.Security.Token;
+
 using DataAccess.Abstract;
 using DataAccess.Concrete.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -60,26 +58,6 @@ namespace Business.Extensions
                     .AddTransient<IRoleRepository,RoleRepository>()
                     .AddTransient<IUserRoleRepository,UserRoleRepository>()
                 ;
-            
-            //token değerlerini başka yerde kullanmak için injection ediyoruz
-            services.Configure<TokenOptions>(configuration.GetSection("TokenOptions"));
-            //Token kodları
-            var tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtbeareroptions =>
-            {
-                jwtbeareroptions.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateAudience = true,
-                    ValidateIssuer = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = tokenOptions.Issuer,
-                    ValidAudience = tokenOptions.Audience,
-                    IssuerSigningKey = SignHandler.GetSecurityKey(tokenOptions.SecurityKey)
-                };
-            });
-
-
         }
         public static void AddBusinessLayer(this IServiceCollection services, IConfiguration configuration)
         {

@@ -63,7 +63,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-
+builder.Services.AddAuthorization();
 builder.Services.RegisterDatabase(builder.Configuration);
 builder.Services.RegisterServices(builder.Configuration);
 builder.Services.AddBusinessLayer(builder.Configuration);
@@ -87,9 +87,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseSwagger();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseSwaggerUI();
 
 app.Run();
