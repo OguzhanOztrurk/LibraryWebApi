@@ -15,7 +15,7 @@ namespace Core.Validation
             var validationResult = base.Validate(context);
             if(!validationResult.IsValid)
             {
-                validationResult.Errors.ToList();
+                validationResult.Errors.ToList(); 
             }
 
             return validationResult;
