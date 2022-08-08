@@ -21,4 +21,8 @@
     <PackageReference Include="MMLib.SwaggerForOcelot" Version="4.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="aaaa" />
+  </ItemGroup>
+
 </Project>
