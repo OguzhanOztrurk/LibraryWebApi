@@ -73,7 +73,8 @@ public class GetLoginUserQuery:IRequest<IResponse>
             {
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
+
             };
             var roles = new List<UserWithRolesDTO>(_userRepository.GetUserRoleNamesList(user.UserID));
             foreach (var role in roles) claims.Add(new Claim(ClaimTypes.Role, role.Name));

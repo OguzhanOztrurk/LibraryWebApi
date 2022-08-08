@@ -10,9 +10,5 @@ public interface IUserRepository:IEntityRepository<User>
     Task<IEnumerable<UserWithRolesDTO>> GetUserRoleNames(Guid userId);
     List<UserWithRolesDTO> GetUserRoleNamesList(Guid userId);
 
-    Guid UserId();
-
-    string UserRole();
-
     Task<User> GetUserInfo(Guid userId);
 }

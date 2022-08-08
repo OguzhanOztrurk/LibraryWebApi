@@ -56,16 +56,7 @@ public class UserRepository:EfEntityRepositoryBase<User,AppDbContext>,IUserRepos
         return result;
     }
 
-    public Guid UserId()
-    {
-        var userId= _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Guid.Parse(userId);
-    }
-
-    public string UserRole()
-    {
-        return _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Role).Value;
-    }
+    
 
     public async Task<User> GetUserInfo(Guid userId)
     {

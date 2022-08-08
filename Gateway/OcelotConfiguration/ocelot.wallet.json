@@ -1,0 +1,11 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "{everything}",
+      "ServiceName": "deneme",
+      "UpstreamPathTemplate": "/deneme-gate/{everything}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "deneme"
+    }
+  ]
+}

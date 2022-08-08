@@ -21,6 +21,7 @@ using DataAccess.Abstract;
 using DataAccess.Concrete.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+
 using Configuration = Castle.Windsor.Installer.Configuration;
 
 namespace Business.Extensions
@@ -57,12 +58,15 @@ namespace Business.Extensions
                     .AddTransient<IUserRepository,UserRepository>()
                     .AddTransient<IRoleRepository,RoleRepository>()
                     .AddTransient<IUserRoleRepository,UserRoleRepository>()
+                    .AddTransient<ICurrentRepository,CurrentRepository>()
                 ;
+            
         }
         public static void AddBusinessLayer(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly())
                  .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         }
+        
     }
 }
