@@ -63,14 +63,6 @@
               "target": "Package",
               "version": "[10.3.6, )"
             },
-            "MMLib.Ocelot.Provider.AppConfiguration": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "MMLib.SwaggerForOcelot": {
-              "target": "Package",
-              "version": "[4.4.1, )"
-            },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -164,14 +156,6 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[10.3.6, )"
-            },
-            "MMLib.Ocelot.Provider.AppConfiguration": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "MMLib.SwaggerForOcelot": {
-              "target": "Package",
-              "version": "[4.4.1, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -267,14 +251,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "MMLib.Ocelot.Provider.AppConfiguration": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "MMLib.SwaggerForOcelot": {
-              "target": "Package",
-              "version": "[4.4.1, )"
-            },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -365,14 +341,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "MMLib.Ocelot.Provider.AppConfiguration": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "MMLib.SwaggerForOcelot": {
-              "target": "Package",
-              "version": "[4.4.1, )"
-            },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.0, )"

@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryWebApi.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
+
 public class AuthorsController : BaseApiController
 {
     [HttpGet]

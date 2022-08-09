@@ -20,7 +20,7 @@ builder.Services.AddControllers().AddFluentValidation();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-//token işlemleri
+//token functions.
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -68,7 +68,7 @@ builder.Services.RegisterDatabase(builder.Configuration);
 builder.Services.RegisterServices(builder.Configuration);
 builder.Services.AddBusinessLayer(builder.Configuration);
 
-
+//Connection options.
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
     x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
