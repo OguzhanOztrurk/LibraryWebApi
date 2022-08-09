@@ -26,11 +26,34 @@
       "UpstreamPathTemplate": "/Identity/{everything}",
       "UpstreamHttpMethod": [ "Get","Post","Delete","Put"],
       "SwaggerKey": "Identity"
+    },
+    {
+      "DownstreamPathTemplate": "/User/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/User/{everything}",
+      "UpstreamHttpMethod": [ "Get","Post","Delete","Put"],
+      "SwaggerKey": "User"
     }
   ],
 
   "SwaggerEndPoints": [
     
+    {
+      "Key": "Identity",
+      "Config": [
+        {
+          "Name": "Identity API",
+          "Version": "v1",
+          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    },
     {
       "Key": "Admin",
       "Config": [
@@ -42,12 +65,12 @@
       ]
     },
     {
-      "Key": "Identity",
+      "Key": "User",
       "Config": [
         {
-          "Name": "Identity API",
+          "Name": "User API",
           "Version": "v1",
-          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+          "Url": "http://localhost:5005/swagger/v1/swagger.json"
         }
       ]
     }
