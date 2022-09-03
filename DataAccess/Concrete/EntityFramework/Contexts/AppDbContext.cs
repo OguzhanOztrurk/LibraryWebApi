@@ -57,5 +57,7 @@ public class AppDbContext:DbContext
         new BookSeed().Configure(modelBuilder.Entity<Book>());
         #endregion
            
+        //dotnet ef migrations add Initial -s LibraryWebApi -p DataAccess
+        //dotnet ef database update -s LibraryWebApi -p DataAccess
     }
 }

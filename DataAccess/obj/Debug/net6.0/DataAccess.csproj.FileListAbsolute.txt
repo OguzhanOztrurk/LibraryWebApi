@@ -81,3 +81,20 @@ C:\Users\trabz\Desktop\Projeler\1. Kütüphane Projesi\LibraryWebApi\DataAccess\
 C:\Users\trabz\Desktop\Projeler\1. Kütüphane Projesi\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 C:\Users\trabz\Desktop\Projeler\1. Kütüphane Projesi\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
 C:\Users\trabz\Desktop\Projeler\1. Kütüphane Projesi\LibraryWebApi\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\bin\Debug\net6.0\Entities.dll
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\bin\Debug\net6.0\Entities.pdb
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\Users\OGUZHANOZTURK\RiderProjects\LibraryWebApi\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
